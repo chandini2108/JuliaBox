@@ -5,6 +5,8 @@ FROM julialang/juliaboxpkgdist:v0.3.12
 
 MAINTAINER Tanmay Mohapatra
 
+RUN sudo apt-get update && sudo apt-get install -y libgit2-0 libgit2-dev
+
 RUN ln -fs /opt/julia/bin/julia /usr/bin/julia
 
 # add juser
