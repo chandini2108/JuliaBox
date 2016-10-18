@@ -14,8 +14,13 @@ function include_packages {
         echo ""
         echo "$METHOD package $PKG to Julia $JULIA_VER ..."
         /opt/julia-${JULIA_VER}/bin/julia -e "Pkg.${METHOD}(\"$PKG\")"
+        if [ $METHOD == 'build' ]; then
+          /opt/julia-${JULIA_VER}/bin/julia -e "Base.compilecache($PKG)"
+          /opt/julia-${JULIA_VER}/bin/julia -e "eval(parse(\"using $PKG\"))"
+        fi
     done
 }
+
 
 function list_packages {
     JULIA_VER=$1
@@ -24,12 +29,12 @@ function list_packages {
     /opt/julia-${JULIA_VER}/bin/julia -e 'println("JULIA_HOME: $JULIA_HOME\n"); versioninfo(); println(""); Pkg.status()' > /opt/julia_packages/julia-${JULIA_VER}.packages.txt
 }
 
-# Install packages for Julia 0.4 and 0.5
-DEFAULT_PACKAGES="IJulia PyPlot Interact Colors SymPy PyCall"
+# Install packages for Julia 0.4, 0.5, and 0.6-dev
 INTERNAL_PACKAGES="https://github.com/tanmaykm/JuliaBoxUtils.jl.git"
-BUILD_PACKAGES="JuliaBoxUtils IJulia PyPlot"
+DEFAULT_PACKAGES="IJulia PyPlot Interact Colors SymPy PyCall Requests Plots StatPlots FreqTables DataFrames PyPlot"
+BUILD_PACKAGES="JuliaBoxUtils IJulia PyPlot Requests Plots StatPlots FreqTables DataFrames PyPlot"
 
-for ver in 0.3 0.4 0.5
+for ver in 0.3 0.4 0.5 0.6
 do
     init_packages "$ver"
     include_packages "$ver" "$DEFAULT_PACKAGES" "add"
