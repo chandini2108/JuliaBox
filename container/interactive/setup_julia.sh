@@ -31,8 +31,8 @@ function list_packages {
 
 # Install packages for Julia 0.4, 0.5, and 0.6-dev
 INTERNAL_PACKAGES="https://github.com/tanmaykm/JuliaBoxUtils.jl.git"
-DEFAULT_PACKAGES="IJulia PyPlot Interact Colors SymPy PyCall Requests Plots StatPlots FreqTables DataFrames PyPlot"
-BUILD_PACKAGES="JuliaBoxUtils IJulia PyPlot Requests Plots StatPlots FreqTables DataFrames PyPlot"
+DEFAULT_PACKAGES="IJulia PyPlot Interact Colors SymPy PyCall Requests Plots StatPlots FreqTables DataFrames DecisionTree PlotlyJS MultivariateStats"
+BUILD_PACKAGES="JuliaBoxUtils IJulia PyPlot Requests Plots StatPlots FreqTables DataFrames DecisionTree PlotlyJS MultivariateStats"
 
 for ver in 0.3 0.4 0.5 0.6
 do
