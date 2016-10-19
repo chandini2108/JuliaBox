@@ -5,7 +5,6 @@
 
 # configure docker to use either AUFS or DEVICEMAPPER
 DOCKER_FS=AUFS
-#DOCKER_FS=DEVICEMAPPER
 NUM_LOCALMAX=30
 
 function sysinstall_pystuff {
@@ -26,7 +25,7 @@ function sysinstall_pystuff {
 function sysinstall_libs {
     # Stuff required for docker, and tornado
     sudo apt-get -y update
-    sudo apt-get -y install build-essential libreadline-dev libncurses-dev libpcre3-dev libssl-dev netcat git python-setuptools supervisor python-dev python-isodate python-pip python-tz libzmq-dev libmysqlclient-dev
+    sudo apt-get -y install libgit2-0 libgit2-dev build-essential libreadline-dev libncurses-dev libpcre3-dev libssl-dev netcat git python-setuptools supervisor python-dev python-isodate python-pip python-tz libzmq-dev libmysqlclient-dev
 }
 
 function sysinstall_docker {

@@ -1,3 +1,5 @@
+## Setup Scripts
+- install JuliaBox on a clean Ubuntu 14.04 server
 ## Installation Scripts
 - `install/sys_install.sh`: Installs required packages on a base Ubuntu system
 - `install/img_create.sh`: Creates / pulls JuliaBox Docker image and user home directory image

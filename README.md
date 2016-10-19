@@ -34,3 +34,5 @@ The only constraint is imagination (and server cost).
 
 - [Architecture](docs/Architecture.md)
 - [Installation](docs/INSTALL.MD)
+
+For convenience, the installation process is captured in [3 installation scripts](scripts/setup/)
